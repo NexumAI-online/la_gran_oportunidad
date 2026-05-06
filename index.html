@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Gran Oportunidad de 2026 · Rewatch · Nexum Academy</title>
+<meta name="description" content="Cómo construir una agencia de IA de US$5.000/mes en el mercado hispanohablante. Rewatch exclusivo del masterclass de Nexum Academy." />
+<meta name="robots" content="noindex, nofollow" />
+<meta property="og:title" content="La Gran Oportunidad de 2026" />
+<meta property="og:description" content="El sistema completo para crear tu agencia de IA · Rewatch exclusivo" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #14141f;
+    --bg-tertiary: #1c1c2a;
+    --purple: #8943E3;
+    --magenta: #F239FF;
+    --gradient-brand: linear-gradient(135deg, #8943E3 0%, #F239FF 100%);
+    --text-primary: #FFFFFF;
+    --text-secondary: #B8B8C7;
+    --text-tertiary: #6B6B7A;
+    --success: #00D9A3;
+    --warning: #FFB800;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-medium: rgba(255, 255, 255, 0.15);
+    --font-sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--magenta); color: var(--bg-primary); }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============== HEADER ============== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-blur: 20px;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+  .footer .logo img { height: 36px; opacity: 0.65; transition: opacity 200ms ease; }
+  .footer .logo:hover img { opacity: 0.9; }
+  @media (max-width: 768px) {
+    .logo img { height: 26px; }
+  }
+  .header-countdown {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-countdown__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    font-weight: 600;
+  }
+  .header-countdown__value {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--warning);
+  }
+
+  @media (max-width: 768px) {
+    .header__inner { flex-direction: column; gap: 6px; align-items: flex-start; padding: 12px 20px; }
+    .header-countdown { width: 100%; justify-content: space-between; }
+    .header-countdown__label { font-size: 9px; }
+    .header-countdown__value { font-size: 13px; }
+  }
+
+  /* ============== HERO ============== */
+  .hero {
+    padding: 96px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(137, 67, 227, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero__inner { text-align: center; position: relative; }
+  .pre-headline {
+    color: var(--magenta);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+  }
+  .h1 {
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 900px;
+    margin: 0 auto 24px;
+  }
+  .gradient-text {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .hero__sub {
+    color: var(--text-secondary);
+    font-size: clamp(16px, 2vw, 20px);
+    max-width: 640px;
+    margin: 0 auto 48px;
+    line-height: 1.5;
+  }
+  .video-wrap {
+    max-width: 1024px;
+    margin: 0 auto 32px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-medium);
+    box-shadow: 0 0 80px rgba(137, 67, 227, 0.15);
+    aspect-ratio: 4 / 3;
+    background: #000;
+    transition: box-shadow 300ms ease;
+  }
+  .video-wrap:hover { box-shadow: 0 0 120px rgba(137, 67, 227, 0.3); }
+  .video-wrap iframe { width: 100%; height: 100%; border: 0; }
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(135deg, #14141f 0%, #1c1c2a 100%);
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .video-placeholder i { width: 48px; height: 48px; color: var(--purple); }
+
+  /* ============== CTAs ============== */
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 16px;
+    transition: transform 200ms ease, box-shadow 300ms ease, background 200ms ease;
+    white-space: nowrap;
+  }
+  .btn i { width: 18px; height: 18px; }
+  .btn--primary {
+    background: var(--gradient-brand);
+    color: white;
+    box-shadow: 0 0 40px rgba(137, 67, 227, 0.4);
+    font-size: 18px;
+    padding: 18px 36px;
+  }
+  .btn--primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 60px rgba(242, 57, 255, 0.55);
+  }
+  .btn--secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1.5px solid var(--purple);
+    font-weight: 600;
+  }
+  .btn--secondary:hover {
+    background: rgba(137, 67, 227, 0.1);
+    border-color: var(--magenta);
+  }
+  .btn--xl {
+    font-size: 22px;
+    font-weight: 800;
+    padding: 24px 48px;
+    box-shadow: 0 0 80px rgba(137, 67, 227, 0.5);
+  }
+  .btn--xl:hover { box-shadow: 0 0 120px rgba(242, 57, 255, 0.6); }
+
+  .trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-tertiary);
+    font-size: 14px;
+    margin-top: 24px;
+  }
+  .trust i { width: 14px; height: 14px; }
+
+  @media (max-width: 640px) {
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .btn { width: 100%; }
+  }
+
+  /* ============== SECTION COMMON ============== */
+  section { padding: 96px 0; position: relative; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .h2 {
+    font-weight: 800;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .h2--small {
+    font-size: clamp(13px, 1.4vw, 14px);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--magenta);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 640px;
+    margin: 16px auto 0;
+  }
+
+  /* ============== RECAP ============== */
+  .recap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .recap-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(20, 20, 31, 0.85) 0%, rgba(28, 28, 42, 0.55) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 36px 32px 40px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 350ms ease;
+  }
+  .recap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient-brand);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .recap-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(242, 57, 255, 0.08) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .recap-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(137, 67, 227, 0.4);
+    box-shadow: 0 24px 60px -20px rgba(137, 67, 227, 0.35);
+  }
+  .recap-card:hover::before { transform: scaleX(1); }
+  .recap-card:hover::after { opacity: 1; }
+
+  .recap-card__num {
+    position: absolute;
+    bottom: -28px;
+    right: -8px;
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 160px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, rgba(137, 67, 227, 0.14) 0%, transparent 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 0;
+  }
+  .recap-card:hover .recap-card__num {
+    transform: translateY(-4px) translateX(-4px);
+    background: linear-gradient(180deg, rgba(242, 57, 255, 0.22) 0%, transparent 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .recap-card__icon {
+    position: relative;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(137, 67, 227, 0.18) 0%, rgba(242, 57, 255, 0.12) 100%);
+    border: 1px solid rgba(137, 67, 227, 0.35);
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+    box-shadow: 0 0 0 0 rgba(137, 67, 227, 0);
+    transition: all 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .recap-card__icon i {
+    width: 26px;
+    height: 26px;
+    color: var(--purple);
+    transition: color 300ms ease, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .recap-card:hover .recap-card__icon {
+    background: var(--gradient-brand);
+    border-color: transparent;
+    box-shadow: 0 0 32px rgba(242, 57, 255, 0.5);
+    transform: rotate(-3deg) scale(1.05);
+  }
+  .recap-card:hover .recap-card__icon i { color: white; transform: rotate(3deg); }
+
+  .recap-card h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .recap-card p {
+    position: relative;
+    z-index: 1;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) { .recap-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) {
+    .recap-card { padding: 32px 28px 36px; }
+    .recap-card__num { font-size: 130px; bottom: -22px; right: -6px; }
+  }
+
+  /* ============== BONUSES PUNCHY ============== */
+  .bonuses { position: relative; overflow: hidden; }
+  .bonuses::before {
+    content: '';
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px; height: 700px;
+    background: radial-gradient(circle, rgba(242, 57, 255, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bonuses .container { position: relative; z-index: 1; }
+
+  .pulse-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--magenta);
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    animation: pulseDot 2s ease-out infinite;
+  }
+  .pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--magenta);
+    animation: pulseRing 2s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulseDot {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  @keyframes pulseRing {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(3.2); opacity: 0; }
+  }
+
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .bonus-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(28, 28, 42, 0.92) 0%, rgba(20, 20, 31, 0.7) 100%);
+    border: 1.5px solid rgba(137, 67, 227, 0.25);
+    border-radius: 22px;
+    padding: 32px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 400ms ease;
+  }
+  .bonus-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+    opacity: 0.45;
+    transition: opacity 300ms ease;
+  }
+  .bonus-card::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle at center, rgba(242, 57, 255, 0.18) 0%, transparent 65%);
+    opacity: 0.4;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .bonus-card:hover {
+    transform: translateY(-8px) rotate(-0.4deg);
+    border-color: rgba(242, 57, 255, 0.55);
+    box-shadow: 0 28px 64px -18px rgba(137, 67, 227, 0.5);
+  }
+  .bonus-card:hover::before { opacity: 1; }
+  .bonus-card:hover::after { opacity: 1; }
+
+  .bonus-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .bonus-card__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(137, 67, 227, 0.22) 0%, rgba(242, 57, 255, 0.16) 100%);
+    border: 1px solid rgba(137, 67, 227, 0.4);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    transition: all 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .bonus-card__icon i {
+    width: 26px;
+    height: 26px;
+    color: var(--magenta);
+    transition: color 300ms ease, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .bonus-card:hover .bonus-card__icon {
+    background: var(--gradient-brand);
+    border-color: transparent;
+    box-shadow: 0 0 32px rgba(242, 57, 255, 0.55);
+    transform: rotate(-4deg) scale(1.05);
+  }
+  .bonus-card:hover .bonus-card__icon i { color: white; transform: rotate(4deg); }
+
+  .bonus-card__value { text-align: right; flex-shrink: 0; }
+  .bonus-card__value-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+  }
+  .bonus-card__value-amount {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bonus-card__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .bonus-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    padding-right: 0;
+  }
+  .bonus-card p {
+    color: var(--text-secondary);
+    font-size: 15.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .bonus-card__footer {
+    padding-top: 18px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  }
+  .bonus-card__footer-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--success);
+    background: rgba(0, 217, 163, 0.1);
+    border: 1px solid rgba(0, 217, 163, 0.3);
+    padding: 7px 13px;
+    border-radius: 999px;
+  }
+  .bonus-card__footer-tag i { width: 13px; height: 13px; }
+
+  /* Featured (Bonus 4) */
+  .bonus-card--featured {
+    border-color: rgba(242, 57, 255, 0.55);
+    background: linear-gradient(180deg, rgba(50, 22, 78, 0.92) 0%, rgba(28, 18, 50, 0.78) 100%);
+    box-shadow: 0 12px 40px -12px rgba(242, 57, 255, 0.35);
+  }
+  .bonus-card--featured::before { opacity: 1; height: 4px; }
+  .bonus-card--featured::after { opacity: 0.85; }
+  .bonus-card--featured .bonus-card__icon {
+    background: var(--gradient-brand);
+    border-color: transparent;
+    box-shadow: 0 0 24px rgba(242, 57, 255, 0.4);
+  }
+  .bonus-card--featured .bonus-card__icon i { color: white; }
+  .bonus-card__ribbon {
+    position: absolute;
+    top: 22px;
+    right: -56px;
+    background: var(--gradient-brand);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 7px 60px;
+    transform: rotate(35deg);
+    z-index: 3;
+    box-shadow: 0 6px 20px rgba(242, 57, 255, 0.45);
+  }
+
+  /* Total — savings display */
+  .bonus-total {
+    margin-top: 24px;
+    padding: 48px 32px 40px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(242, 57, 255, 0.3);
+    background: linear-gradient(135deg, rgba(137, 67, 227, 0.1) 0%, rgba(242, 57, 255, 0.06) 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .bonus-total::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(242, 57, 255, 0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .bonus-total__grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .bonus-total__sep {
+    color: var(--text-tertiary);
+    font-size: 28px;
+    font-weight: 200;
+    line-height: 1;
+  }
+  .bonus-total__col { text-align: center; }
+  .bonus-total__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+  .bonus-total__amount {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    display: block;
+  }
+  .bonus-total__amount--strike {
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    font-weight: 700;
+    font-size: clamp(24px, 3.4vw, 36px);
+  }
+  .bonus-total__amount--save {
+    background: linear-gradient(135deg, var(--success) 0%, #5BFFD0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .bonus-total__hint-bar {
+    margin-top: 28px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-tertiary);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bonus-total__hint-bar i { width: 14px; height: 14px; color: var(--warning); }
+
+  @media (max-width: 768px) {
+    .bonus-grid { grid-template-columns: 1fr; gap: 20px; }
+    .bonus-card { padding: 28px 24px; }
+    .bonus-card__head { gap: 12px; }
+    .bonus-card__value-amount { font-size: 22px; }
+    .bonus-card__ribbon { font-size: 9px; padding: 6px 50px; right: -50px; top: 18px; }
+    .bonus-total { padding: 36px 20px 32px; }
+    .bonus-total__grid { grid-template-columns: 1fr; gap: 24px; }
+    .bonus-total__sep { display: none; }
+  }
+
+  /* ============== GUARANTEE ============== */
+  .guarantee {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(0, 217, 163, 0.06) 0%, transparent 100%);
+    border: 1px solid rgba(0, 217, 163, 0.2);
+    border-radius: 24px;
+    padding: 56px 48px;
+    text-align: center;
+  }
+  .guarantee i {
+    width: 56px;
+    height: 56px;
+    color: var(--success);
+    margin-bottom: 24px;
+  }
+  .guarantee h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.15;
+  }
+  .guarantee p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 540px;
+    margin: 0 auto 16px;
+  }
+  .guarantee p:last-child { color: var(--text-primary); font-weight: 600; }
+
+  @media (max-width: 640px) { .guarantee { padding: 40px 28px; } }
+
+  /* ============== CTA SECTION ============== */
+  .cta-section { text-align: center; }
+  .pricing-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 32px 0 40px;
+    font-family: var(--font-mono);
+  }
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 360px;
+    color: var(--text-secondary);
+    font-size: 16px;
+  }
+  .pricing-row__strike { text-decoration: line-through; color: var(--text-tertiary); }
+  .pricing-big {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: clamp(48px, 7vw, 72px);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-top: 8px;
+  }
+  .pricing-deadline {
+    color: var(--text-tertiary);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .trust-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 32px;
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+  .trust-checks .row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .trust-checks i {
+    width: 16px;
+    height: 16px;
+    color: var(--success);
+    flex-shrink: 0;
+  }
+
+  /* ============== FAQ ============== */
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .faq-item {
+    background: rgba(20, 20, 31, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 200ms ease;
+  }
+  .faq-item.is-open { border-color: rgba(137, 67, 227, 0.25); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .faq-q i {
+    width: 20px;
+    height: 20px;
+    color: var(--purple);
+    transition: transform 300ms ease;
+    flex-shrink: 0;
+  }
+  .faq-item.is-open .faq-q i { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+  }
+  .faq-a__inner {
+    padding: 0 24px 24px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* ============== FINAL CTA ============== */
+  .final {
+    text-align: center;
+    padding: 128px 0 96px;
+    position: relative;
+  }
+  .final::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(242, 57, 255, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .final h2 {
+    font-weight: 900;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .final p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto 48px;
+    position: relative;
+  }
+  .final .btn--xl { position: relative; }
+  .final__sub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 32px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 2px;
+    transition: color 200ms ease, border-color 200ms ease;
+    position: relative;
+  }
+  .final__sub-link:hover { color: var(--text-primary); border-color: var(--purple); }
+  .final__sub-link i { width: 14px; height: 14px; }
+
+  /* ============== FOOTER ============== */
+  .footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 48px 0;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 14px;
+  }
+  .footer .logo { justify-content: center; opacity: 0.6; margin-bottom: 16px; }
+  .footer a { color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); }
+  .footer a:hover { color: var(--magenta); }
+
+  /* ============== STICKY MOBILE CTA ============== */
+  .sticky-mobile {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .sticky-mobile {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 12px 16px;
+      z-index: 60;
+      transform: translateY(120%);
+      transition: transform 350ms ease;
+    }
+    .sticky-mobile.is-visible { transform: translateY(0); }
+    .sticky-mobile .btn { width: 100%; padding: 14px 20px; font-size: 16px; }
+    body { padding-bottom: 76px; }
+  }
+
+  /* ============== ANIMATIONS ============== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    transition-delay: var(--delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* Helper: alt section bg */
+  .bg-alt { background: linear-gradient(180deg, transparent 0%, rgba(20, 20, 31, 0.4) 50%, transparent 100%); }
+</style>
+</head>
+<body>
+
+<!-- ============== HEADER ============== -->
+<header class="header">
+  <div class="header__inner">
+    <a href="#top" class="logo" aria-label="Nexum Academy">
+      <img src="assets/logo-nexum-academy.svg" alt="Nexum Academy" />
+    </a>
+    <div class="header-countdown">
+      <span class="header-countdown__label">Precio fundador termina en</span>
+      <span class="header-countdown__value" id="header-countdown">— d — h — m — s</span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="pre-headline reveal">Rewatch exclusivo · Nexum Academy</p>
+      <h1 class="h1 reveal" style="--delay: 100ms;">La Gran Oportunidad de <span class="gradient-text">2026</span></h1>
+      <p class="hero__sub reveal" style="--delay: 200ms;">Cómo construir una agencia de IA de US$5.000/mes en el mercado hispanohablante — antes de que se cierre la ventana.</p>
+
+      <div class="video-wrap reveal" style="--delay: 300ms;">
+        <iframe id="rewatch-video" src="https://player.vimeo.com/video/1189717119?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Rewatch · La Gran Oportunidad de 2026"></iframe>
+      </div>
+
+      <div class="cta-row reveal" style="--delay: 400ms;">
+        <a class="btn btn--primary" href="https://cal.com/team/nexum-ai/nexum-academy-pro?utm_source=skool&amp;utm_medium=organic&amp;utm_campaign=prelanzamiento05/05" target="_blank" rel="noopener">
+          Agendar llamada gratuita
+          <i data-lucide="arrow-right"></i>
+        </a>
+        <a class="btn btn--secondary" href="https://checkout-six-nu.vercel.app/" target="_blank" rel="noopener">
+          Ver el programa Nexum Pro
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="trust reveal" style="--delay: 500ms;">
+        <i data-lucide="clock"></i>
+        <span>Llamada de 30 minutos · Sin compromiso · Con el equipo de Nexum</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== RECAP ============== -->
+  <section class="bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="h2--small">Recap del masterclass</p>
+        <h2 class="h2">Lo que has visto en los últimos 90 minutos</h2>
+      </div>
+      <div class="recap-grid">
+        <article class="recap-card reveal">
+          <span class="recap-card__num">01</span>
+          <div class="recap-card__icon"><i data-lucide="trending-up"></i></div>
+          <h3>La oportunidad de US$1.81T</h3>
+          <p>Por qué la IA es el mercado más grande de la próxima década, y por qué hablar español es la mayor ventaja competitiva que existe.</p>
+        </article>
+        <article class="recap-card reveal" style="--delay: 100ms;">
+          <span class="recap-card__num">02</span>
+          <div class="recap-card__icon"><i data-lucide="target"></i></div>
+          <h3>El modelo en 4 movimientos</h3>
+          <p>Detectas → Construyes → Cobras setup → Cobras retainer. El sistema replicable que escala a US$5.000/mes recurrentes con 10 clientes.</p>
+        </article>
+        <article class="recap-card reveal" style="--delay: 200ms;">
+          <span class="recap-card__num">03</span>
+          <div class="recap-card__icon"><i data-lucide="zap"></i></div>
+          <h3>Los 3 pilares del 3% que factura</h3>
+          <p>Oferta, adquisición, retención. La diferencia entre el 97% que aprende A HACER y el 3% que aprende A COBRAR.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BONUSES ============== -->
+  <section class="bonuses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="h2--small"><span class="pulse-dot"></span>Por tiempo limitado · hasta el domingo 23:50</p>
+        <h2 class="h2">4 bonuses que <span class="gradient-text">no vas a creer</span></h2>
+        <p class="section-sub">Estos 4 bonuses son SOLO para quienes agendan o compran antes del domingo a las 23:50.</p>
+      </div>
+
+      <div class="bonus-grid">
+        <article class="bonus-card reveal">
+          <div class="bonus-card__head">
+            <div class="bonus-card__icon"><i data-lucide="bot"></i></div>
+            <div class="bonus-card__value">
+              <span class="bonus-card__value-label">Valor</span>
+              <span class="bonus-card__value-amount">US$1.500</span>
+            </div>
+          </div>
+          <div class="bonus-card__num">Bonus 01</div>
+          <h3>Appointment Setter Pre-Construido</h3>
+          <p>La solución completa de IA que cobramos US$40K por construir. Lista para que la instales con tus clientes desde el día uno.</p>
+          <div class="bonus-card__footer">
+            <span class="bonus-card__footer-tag"><i data-lucide="check"></i>Incluido gratis</span>
+          </div>
+        </article>
+
+        <article class="bonus-card reveal" style="--delay: 100ms;">
+          <div class="bonus-card__head">
+            <div class="bonus-card__icon"><i data-lucide="video"></i></div>
+            <div class="bonus-card__value">
+              <span class="bonus-card__value-label">Valor</span>
+              <span class="bonus-card__value-amount">US$497</span>
+            </div>
+          </div>
+          <div class="bonus-card__num">Bonus 02</div>
+          <h3>Llamada 1:1 con el equipo</h3>
+          <p>Una hora con el equipo de Nexum. Validamos tu nicho, tu oferta, tu pricing. Sales con un plan exacto para tus primeros 30 días.</p>
+          <div class="bonus-card__footer">
+            <span class="bonus-card__footer-tag"><i data-lucide="check"></i>Incluido gratis</span>
+          </div>
+        </article>
+
+        <article class="bonus-card reveal" style="--delay: 200ms;">
+          <div class="bonus-card__head">
+            <div class="bonus-card__icon"><i data-lucide="message-circle"></i></div>
+            <div class="bonus-card__value">
+              <span class="bonus-card__value-label">Valor</span>
+              <span class="bonus-card__value-amount">US$297</span>
+            </div>
+          </div>
+          <div class="bonus-card__num">Bonus 03</div>
+          <h3>WhatsApp directo · 3 meses</h3>
+          <p>Acceso directo por WhatsApp con el equipo durante 3 meses. Para los bloqueos técnicos a las 11 de la noche y las propuestas que tienes que cerrar mañana.</p>
+          <div class="bonus-card__footer">
+            <span class="bonus-card__footer-tag"><i data-lucide="check"></i>Incluido gratis</span>
+          </div>
+        </article>
+
+        <article class="bonus-card bonus-card--featured reveal" style="--delay: 300ms;">
+          <div class="bonus-card__ribbon">El más loco</div>
+          <div class="bonus-card__head">
+            <div class="bonus-card__icon"><i data-lucide="layers"></i></div>
+            <div class="bonus-card__value">
+              <span class="bonus-card__value-label">Valor</span>
+              <span class="bonus-card__value-amount">US$1.750</span>
+            </div>
+          </div>
+          <div class="bonus-card__num">Bonus 04</div>
+          <h3>Programa duplicado · 36 sesiones extra</h3>
+          <p>Recibes 3 meses adicionales de formación con 36 sesiones extra. Es como comprar el programa dos veces — pero pagas una sola.</p>
+          <div class="bonus-card__footer">
+            <span class="bonus-card__footer-tag"><i data-lucide="check"></i>Incluido gratis</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="bonus-total reveal">
+        <div class="bonus-total__grid">
+          <div class="bonus-total__col">
+            <span class="bonus-total__label">Valor total</span>
+            <span class="bonus-total__amount bonus-total__amount--strike">US$4.044</span>
+          </div>
+          <div class="bonus-total__sep">→</div>
+          <div class="bonus-total__col">
+            <span class="bonus-total__label">Tu inversión hoy</span>
+            <span class="bonus-total__amount gradient-text">US$1.750</span>
+          </div>
+          <div class="bonus-total__sep">=</div>
+          <div class="bonus-total__col">
+            <span class="bonus-total__label">Te ahorras</span>
+            <span class="bonus-total__amount bonus-total__amount--save">US$2.294</span>
+          </div>
+        </div>
+        <div class="bonus-total__hint-bar">
+          <i data-lucide="clock"></i>
+          <span>Hasta el domingo a las 23:50 hora Uruguay</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GUARANTEE ============== -->
+  <section class="bg-alt">
+    <div class="container">
+      <div class="guarantee reveal">
+        <i data-lucide="shield-check"></i>
+        <h2>Garantía de Resultado · 90 Días</h2>
+        <p>Si en 90 días no recuperas tu inversión de US$1.750, seguimos contigo. Sin costo. Sin excusas. Hasta que lo consigas.</p>
+        <p>El riesgo es nuestro, no tuyo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SECOND CTA ============== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="reveal">
+        <p class="h2--small">La decisión</p>
+        <h2 class="h2">¿Vas a tomar acción?</h2>
+        <p class="section-sub">Has visto los datos. Has visto cómo funciona. Has visto los casos reales. La pregunta no es si eres capaz. La pregunta es: ¿vas a darte la oportunidad de descubrirlo?</p>
+
+        <div class="pricing-display">
+          <div class="pricing-row">
+            <span>Precio normal:</span>
+            <span class="pricing-row__strike">US$2.250</span>
+          </div>
+          <div class="pricing-row">
+            <span>Precio fundador:</span>
+            <span></span>
+          </div>
+          <div class="pricing-big gradient-text">US$1.750</div>
+          <div class="pricing-deadline">Hasta el domingo a las 23:50</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--primary" href="https://cal.com/team/nexum-ai/nexum-academy-pro?utm_source=skool&amp;utm_medium=organic&amp;utm_campaign=prelanzamiento05/05" target="_blank" rel="noopener">
+            Agendar llamada gratuita
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a class="btn btn--secondary" href="https://checkout-six-nu.vercel.app/" target="_blank" rel="noopener">
+            Ver el programa Nexum Pro
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="trust-checks">
+          <span class="row"><i data-lucide="check"></i>Pago único · Sin suscripciones · Sin sorpresas</span>
+          <span class="row"><i data-lucide="check"></i>Garantía de 90 días</span>
+          <span class="row"><i data-lucide="check"></i>Acceso de por vida al contenido</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FAQ ============== -->
+  <section class="bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="h2">Preguntas que probablemente te estás haciendo</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Y si no soy técnico? No sé programar.</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">No hace falta. Las herramientas que vamos a enseñarte (n8n, Claude, Airtable) no requieren programar. Lo que requieren es saber QUÉ vender. Y eso es exactamente lo que aprendes en Nexum Pro. Nosotros mismos no éramos programadores cuando empezamos.</div></div>
+        </div>
+
+        <div class="faq-item reveal" style="--delay: 80ms;">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Cuánto tiempo me va a tomar?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">Si tienes 30-60 minutos al día, es suficiente. La mayoría de nuestros estudiantes empieza en su tiempo libre, todavía en su trabajo actual. El programa está diseñado exactamente para esa situación.</div></div>
+        </div>
+
+        <div class="faq-item reveal" style="--delay: 160ms;">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿US$1.750 no es mucho dinero?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">Es dinero. Pero es el dinero que recuperas con UN SOLO cliente que cierres. Si en 90 días no puedes cerrar un proyecto de US$1.750, te seguimos acompañando sin costo hasta que lo consigas. La garantía cubre exactamente ese riesgo.</div></div>
+        </div>
+
+        <div class="faq-item reveal" style="--delay: 240ms;">
+          <button class="faq-q" aria-expanded="false">
+            <span>Otros cursos no me funcionaron.</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">Te creo. Probablemente eran cursos que enseñaban la cosa equivocada — la parte técnica. Aquí te enseñamos la parte de NEGOCIO: cómo conseguir clientes, cómo cobrar lo que vale, cómo retener. Es otro juego.</div></div>
+        </div>
+
+        <div class="faq-item reveal" style="--delay: 320ms;">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Por qué solo hasta el domingo?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">Porque las mentorías 1:1 con el equipo tienen un límite real. No queremos vender plazas que no podemos atender bien. El precio fundador (US$1.750 vs US$2.250 normal) es la forma de premiar a quienes deciden rápido y se comprometen. El lunes 12 sube a US$2.000.</div></div>
+        </div>
+
+        <div class="faq-item reveal" style="--delay: 400ms;">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Y si no soy capaz?</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a__inner">Si esa es tu pregunta, déjame decirte algo. La duda no significa que no estás listo. La duda significa que estás a punto de hacer algo que importa. La gente que NO duda es la gente que NO actúa. Tú dudas porque te importa. Y por eso vas a poder. La garantía de 90 días está hecha exactamente para esto: si te da miedo, agenda la llamada y hablamos sin compromiso.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FINAL CTA ============== -->
+  <section class="final">
+    <div class="container">
+      <h2 class="reveal">La ventana está abierta. <span class="gradient-text">Por ahora.</span></h2>
+      <p class="reveal" style="--delay: 100ms;">Tienes 18-24 meses de ventaja sobre los demás. Pero solo si arrancas antes que ellos.</p>
+      <a class="btn btn--primary btn--xl reveal" href="https://cal.com/team/nexum-ai/nexum-academy-pro?utm_source=skool&amp;utm_medium=organic&amp;utm_campaign=prelanzamiento05/05" target="_blank" rel="noopener" style="--delay: 200ms;">
+        Agendar llamada gratuita
+        <i data-lucide="arrow-right"></i>
+      </a>
+      <div class="reveal" style="--delay: 300ms;">
+        <a class="final__sub-link" href="https://checkout-six-nu.vercel.app/" target="_blank" rel="noopener">
+          o comprar el programa directamente
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="container">
+    <div class="logo" style="justify-content: center; margin-bottom: 16px;">
+      <img src="assets/logo-nexum-academy.svg" alt="Nexum Academy" />
+    </div>
+    <div>© 2026 Nexum AI · Todos los derechos reservados</div>
+    <div style="margin-top: 8px;"><a href="https://nexumai.online" target="_blank" rel="noopener">nexumai.online</a></div>
+  </div>
+</footer>
+
+<!-- ============== STICKY MOBILE CTA ============== -->
+<div class="sticky-mobile" id="sticky-mobile">
+  <a class="btn btn--primary" href="https://cal.com/team/nexum-ai/nexum-academy-pro?utm_source=skool&amp;utm_medium=organic&amp;utm_campaign=prelanzamiento05/05" target="_blank" rel="noopener">
+    Agendar llamada
+    <i data-lucide="arrow-right"></i>
+  </a>
+</div>
+
+<!-- ============== LUCIDE ============== -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  // ===== Init Lucide icons =====
+  lucide.createIcons();
+
+  // ===== Countdown =====
+  const DEADLINE_ISO = '2026-05-11T23:50:00-03:00'; // {{DEADLINE_ISO}}
+  const DEADLINE = new Date(DEADLINE_ISO).getTime();
+  const headerEl = document.getElementById('header-countdown');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const now = Date.now();
+    const diff = DEADLINE - now;
+    if (diff <= 0) {
+      headerEl.textContent = 'Las plazas con precio fundador se cerraron';
+      headerEl.style.color = 'var(--text-tertiary)';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    headerEl.textContent = `${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // ===== FAQ accordion =====
+  document.querySelectorAll('.faq-q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('is-open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach((it) => {
+        it.classList.remove('is-open');
+        it.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        it.querySelector('.faq-a').style.maxHeight = '0px';
+      });
+
+      // Open this one if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ===== Reveal on scroll =====
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach((el) => io.observe(el));
+
+  // ===== Sticky mobile CTA (after 50% scroll) =====
+  const stickyMobile = document.getElementById('sticky-mobile');
+  function checkSticky() {
+    const scrolled = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrolled / docHeight;
+    if (pct > 0.15) {
+      stickyMobile.classList.add('is-visible');
+    } else {
+      stickyMobile.classList.remove('is-visible');
+    }
+  }
+  window.addEventListener('scroll', checkSticky, { passive: true });
+  checkSticky();
+
+</script>
+
+</body>
+</html>
