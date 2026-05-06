@@ -107,10 +107,7 @@
   }
 
   @media (max-width: 768px) {
-    .header__inner { flex-direction: column; gap: 6px; align-items: flex-start; padding: 12px 20px; }
-    .header-countdown { width: 100%; justify-content: space-between; }
-    .header-countdown__label { font-size: 9px; }
-    .header-countdown__value { font-size: 13px; }
+    .header__inner { padding: 14px 20px; }
   }
 
   /* ============== HERO ============== */
@@ -970,6 +967,74 @@
 
   /* Helper: alt section bg */
   .bg-alt { background: linear-gradient(180deg, transparent 0%, rgba(20, 20, 31, 0.4) 50%, transparent 100%); }
+
+  /* ============== MOBILE OPTIMIZATIONS (≤ 768px) ============== */
+  @media (max-width: 768px) {
+    /* Tighter vertical rhythm */
+    section { padding: 64px 0; }
+    .hero { padding: 56px 0 40px; }
+    .final { padding: 80px 0 56px; }
+    .section-header { margin-bottom: 40px; }
+
+    /* Container padding (más espacio horizontal en pantallas chicas) */
+    .container { padding: 0 20px; }
+
+    /* Hero text wrapping & spacing */
+    .hero__sub { margin: 0 auto 24px; }
+    .hero__cta-prompt {
+      margin: 16px auto 20px;
+      max-width: 320px;
+      line-height: 1.25;
+    }
+
+    /* Trust line — wrap si no entra, mantener centrado */
+    .trust {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      max-width: 360px;
+      margin: 20px auto 0;
+      line-height: 1.5;
+    }
+
+    /* CTA xl en final — full-width sin overflow */
+    .btn--xl {
+      font-size: 17px;
+      padding: 18px 24px;
+      width: 100%;
+      box-sizing: border-box;
+      letter-spacing: -0.01em;
+    }
+    .final p { margin-bottom: 32px; }
+
+    /* Recap cards — números más chicos */
+    .recap-card {
+      padding: 28px 24px 32px;
+    }
+    .recap-card__num { font-size: 110px; }
+
+    /* Mid CTA con padding más ajustado */
+    .cta-section .h2 + .section-sub { margin: 16px auto 28px; }
+
+    /* FAQ items */
+    .faq-q { padding: 20px; font-size: 16px; gap: 12px; }
+    .faq-a__inner { padding: 0 20px 20px; font-size: 15px; }
+
+    /* Footer */
+    .footer { padding: 32px 0; }
+
+    /* Video shadow más sutil en mobile (perf) */
+    .video-wrap { box-shadow: 0 0 40px rgba(137, 67, 227, 0.12); }
+  }
+
+  /* ============== EXTRA SMALL (≤ 380px) ============== */
+  @media (max-width: 380px) {
+    .hero__cta-prompt { font-size: 18px; }
+    .h1 { font-size: 36px; }
+    .btn--primary { font-size: 16px; padding: 16px 24px; }
+    .btn--xl { font-size: 16px; padding: 16px 20px; }
+    .recap-card__num { font-size: 90px; bottom: -16px; }
+  }
 </style>
 </head>
 <body>
