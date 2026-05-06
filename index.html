@@ -118,17 +118,27 @@
     padding: 96px 0 64px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
   }
-  .hero::before {
+  .hero__shader {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 85%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 85%);
+  }
+  .hero__shader canvas { display: block; width: 100% !important; height: 100% !important; }
+  .hero__shader::after {
     content: '';
     position: absolute;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(137, 67, 227, 0.15) 0%, transparent 60%);
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(10,10,15,0.35) 70%, var(--bg-primary) 100%);
     pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__shader { display: none; }
   }
   .hero__inner { text-align: center; position: relative; }
   .pre-headline {
@@ -973,6 +983,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
+    <div class="hero__shader" id="hero-shader" aria-hidden="true"></div>
     <div class="container hero__inner">
       <p class="pre-headline reveal">Rewatch exclusivo · Nexum Academy</p>
       <h1 class="h1 reveal" style="--delay: 100ms;">La Gran Oportunidad de <span class="gradient-text">2026</span></h1>
@@ -1282,11 +1293,104 @@
   </a>
 </div>
 
-<!-- ============== LUCIDE ============== -->
+<!-- ============== THREE.JS + LUCIDE ============== -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
   // ===== Init Lucide icons =====
   lucide.createIcons();
+
+  // ===== Hero shader animation (Three.js) — Nexum brand palette =====
+  (function initHeroShader() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const container = document.getElementById('hero-shader');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const vertexShader = `
+      void main() {
+        gl_Position = vec4(position, 1.0);
+      }
+    `;
+
+    // Brand-adapted fragment shader: 3 layers tinted with violet / purple / magenta
+    const fragmentShader = `
+      #define TWO_PI 6.2831853072
+      #define PI 3.14159265359
+
+      precision highp float;
+      uniform vec2 resolution;
+      uniform float time;
+
+      void main(void) {
+        vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+        float t = time * 0.04;
+        float lineWidth = 0.0018;
+
+        vec3 violet  = vec3(0.417, 0.196, 0.701); // #6A32B3
+        vec3 purple  = vec3(0.537, 0.263, 0.890); // #8943E3
+        vec3 magenta = vec3(0.949, 0.224, 1.000); // #F239FF
+
+        vec3 color = vec3(0.0);
+        for(int i = 0; i < 5; i++) {
+          float fi = float(i);
+          float ii = float(i*i);
+          float i0 = lineWidth * ii / abs(fract(t + 0.0  + fi*0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));
+          float i1 = lineWidth * ii / abs(fract(t - 0.01 + fi*0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));
+          float i2 = lineWidth * ii / abs(fract(t - 0.02 + fi*0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));
+          color += violet  * i0;
+          color += purple  * i1;
+          color += magenta * i2;
+        }
+
+        gl_FragColor = vec4(color * 0.85, 1.0);
+      }
+    `;
+
+    const camera = new THREE.Camera();
+    camera.position.z = 1;
+
+    const scene = new THREE.Scene();
+    const geometry = new THREE.PlaneGeometry(2, 2);
+
+    const uniforms = {
+      time: { value: 1.0 },
+      resolution: { value: new THREE.Vector2() },
+    };
+
+    const material = new THREE.ShaderMaterial({ uniforms, vertexShader, fragmentShader });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    const isMobile = window.innerWidth < 768;
+    const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
+    container.appendChild(renderer.domElement);
+
+    function onResize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      renderer.setSize(w, h);
+      uniforms.resolution.value.x = renderer.domElement.width;
+      uniforms.resolution.value.y = renderer.domElement.height;
+    }
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    let rafId = 0;
+    let paused = false;
+    function animate() {
+      if (paused) return;
+      rafId = requestAnimationFrame(animate);
+      uniforms.time.value += 0.05;
+      renderer.render(scene, camera);
+    }
+    document.addEventListener('visibilitychange', () => {
+      paused = document.hidden;
+      if (!paused) animate();
+      else cancelAnimationFrame(rafId);
+    });
+    animate();
+  })();
 
   // ===== Countdown =====
   const DEADLINE_ISO = '2026-05-11T23:50:00-03:00'; // {{DEADLINE_ISO}}
